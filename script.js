@@ -93,7 +93,6 @@ const projectsData = [
     categoryLabel: 'Frontend • HTML5 Canvas • Vanilla JS',
     badge: 'Interactive Web App',
     timeline: '2026',
-    image: 'images/project1.png',
     shortDescription: 'A zero-database, serverless interactive web application for sending custom cultural & festival greeting cards featuring 3D envelope unsealing, 60 FPS HTML5 Canvas particle physics, and native WhatsApp integration.',
     problem: 'Festival well-wishers are flooded with spammy, impersonal forwards, while commercial greeting card sites charge subscriptions, hoard personal emails, and crash under peak holiday database spikes.',
     solution: 'Engineered a 100% serverless, zero-database greeting platform using client-side URL parameter serialization. Delivered a ceremonial unsealing experience with pure CSS 3D origami envelopes, 60 FPS Canvas particle physics (diyas, sparkles), interactive Sanskrit hymns with English decoders, and 1-click WhatsApp deep linking.',
@@ -119,7 +118,6 @@ const projectsData = [
     categoryLabel: 'Frontend • Bootstrap 5 • UI/UX',
     badge: 'UI/UX & SaaS Landing',
     timeline: '2026',
-    image: 'images/project2.png',
     shortDescription: 'A high-converting, modern, and fully responsive landing page developed for Nexora (an AI-powered productivity workspace startup) using Bootstrap 5, modern CSS3 animations, and AI-assisted prompt design.',
     problem: 'SaaS startups struggle to communicate technical AI value propositions effectively while maintaining sub-second load times and flawless mobile responsiveness across diverse devices.',
     solution: 'Designed a conversion-optimized marketing interface featuring dark/light aesthetic modes, interactive pricing tiers with dynamic billing frequency toggles (-20% discount calculations), accessible FAQ accordions, and interactive lead modals.',
@@ -145,7 +143,6 @@ const projectsData = [
     categoryLabel: 'Frontend • Vanilla JS • DOM API',
     badge: 'DOM Engineering Lab',
     timeline: '2026',
-    image: 'images/project3.png',
     shortDescription: 'An interactive, zero-dependency web playground demonstrating client-side JavaScript DOM manipulation, dynamic CSS variable theming, typography switching, and state persistence.',
     problem: 'Modern web developers frequently rely on heavy frameworks for trivial dynamic interactions, losing touch with underlying browser DOM event lifecycles, CSS variables, and native memory management.',
     solution: 'Engineered a pure Vanilla JavaScript playground with dynamic theme switching (light/dark), root-level dynamic typography swapping (Sans, Serif, Monospace), reactive thought card creation with live counters, and state export to JSON.',
@@ -171,7 +168,6 @@ const projectsData = [
     categoryLabel: 'Research • Web Architecture',
     badge: 'Conference Research Paper',
     timeline: '2025 – 2026',
-    image: 'images/project2.png',
     shortDescription: 'In-depth empirical research paper analyzing Progressive Web Application architectural patterns, offline caching strategies with Service Workers, and cross-platform performance metrics.',
     problem: 'Modern web applications frequently suffer from high latency and complete unavailability in intermittent network environments, causing critical accessibility barriers in developing and low-bandwidth regions.',
     solution: 'Investigated and presented empirical findings on Service Worker cache-first and stale-while-revalidate strategies, Web App Manifest optimizations, and IndexedDB data persistence at the DSMD 2.0 International Conference at JECRC University.',
@@ -195,7 +191,6 @@ const projectsData = [
     categoryLabel: 'C++ • DSA • Algorithms',
     badge: 'Competitive Programming',
     timeline: '2025 – 2026',
-    image: 'images/project1.png',
     shortDescription: 'A structured, comprehensive repository of optimal C++ solutions for LeetCode Data Structures & Algorithms problems covering dynamic programming, graph algorithms, and trees.',
     problem: 'Technical interviews demand deep algorithmic intuition and clean, mathematically optimized code rather than brute-force implementations.',
     solution: 'Authored and maintained 150+ rigorously tested C++ solutions with explicit Time and Space complexity proofs, edge-case evaluations, and STL optimizations.',
@@ -424,14 +419,16 @@ function initProjects() {
       <article class="project-showcase-card" data-project-id="${project.id}">
         <!-- Media Frame with Fallback -->
         <div class="project-media-wrapper">
-          <img 
-            src="${project.image}" 
-            alt="Screenshot preview for ${project.title}" 
-            class="project-card-image"
-            loading="lazy"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          >
-          <div class="project-image-fallback" style="display: none;">
+          ${project.image ? `
+            <img
+              src="${project.image}"
+              alt="Screenshot preview for ${project.title}"
+              class="project-card-image"
+              loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            >
+          ` : ''}
+          <div class="project-image-fallback" style="display: ${project.image ? 'none' : 'flex'};">
             <div class="fallback-icon">💡</div>
             <div class="fallback-title">${project.title}</div>
             <span class="fallback-hint">Project Demo Screenshot</span>
