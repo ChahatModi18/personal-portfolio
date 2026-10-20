@@ -1,0 +1,48 @@
+# ==============================================================================
+# .gitignore for Static Personal Portfolio Website
+# ==============================================================================
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# IDE, Editor & Workspace Metadata
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.antigravity/
+.gemini/
+
+# Environment Variables & Secrets
+.env
+.env.*
+*.env
+*.local
+
+# Package Manager & Dependency Artifacts (if added in future)
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build Outputs & Cache
+dist/
+build/
+.cache/
+.parcel-cache/
+
+# Logs & Temporary Files
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+.vercel
